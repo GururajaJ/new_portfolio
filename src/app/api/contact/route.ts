@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
 
-  const to = CONTACT_TO || portfolio.email;
+  const to = CONTACT_TO || "jgururaja2004@gmail.com";
   const from = CONTACT_FROM || SMTP_USER;
   const safeName = name.trim();
   const safeEmail = email.trim();

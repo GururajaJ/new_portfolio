@@ -1,27 +1,19 @@
+"use client";
+
 import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Skills } from "@/components/Skills";
-import { Projects } from "@/components/Projects";
-import { Experience } from "@/components/Experience";
-import { Education } from "@/components/Education";
-import { Highlights } from "@/components/Highlights";
-import { Contact } from "@/components/Contact";
+import { MinimalistLayout } from "@/components/MinimalistLayout";
 import { Footer } from "@/components/Footer";
+import { CyberGrid } from "@/components/CyberGrid";
 
 export default function Home() {
   return (
     <>
+      {/* Dynamic white background grid backdrop */}
+      <CyberGrid />
+      
       <Navbar />
       <main className="flex-1">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <Highlights />
-        <Contact />
+        <MinimalistLayout />
       </main>
       <Footer />
     </>

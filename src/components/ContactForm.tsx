@@ -28,7 +28,7 @@ export function ContactForm() {
         throw new Error(body.error || "Something went wrong. Please try again.");
       }
       setStatus("success");
-      setMessage("Thanks! Your message has been sent — I'll get back to you soon.");
+      setMessage("Message sent successfully. I will get back to you shortly.");
       form.reset();
     } catch (err) {
       setStatus("error");
@@ -43,8 +43,8 @@ export function ContactForm() {
   const sending = status === "sending";
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto mt-8 max-w-xl space-y-4 text-left">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={onSubmit} className="mt-8 space-y-6 text-left">
+      <div className="grid gap-6 sm:grid-cols-2">
         <Field
           label="Name"
           name="name"
@@ -60,7 +60,7 @@ export function ContactForm() {
           autoComplete="email"
         />
       </div>
-      {/* Honeypot: hidden from real users, catches bots. */}
+      {/* Honeypot for bot catches */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label htmlFor="company">Company</label>
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
@@ -69,7 +69,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-1.5 block text-xs font-medium text-muted-foreground"
+          className="mb-1 block font-mono text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
         >
           Message
         </label>
@@ -77,19 +77,19 @@ export function ContactForm() {
           id="message"
           name="message"
           required
-          rows={4}
-          placeholder="Tell me about the role or project…"
-          className="w-full resize-y rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-ring"
+          rows={3}
+          placeholder="Tell me about the role or project details..."
+          className="w-full resize-none minimal-input py-2 text-sm text-foreground focus:border-accent"
         />
       </div>
 
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-lg shadow-accent/25 transition-all hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+        className="btn-minimal inline-flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer w-full sm:w-auto"
       >
         {sending && (
-          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent-foreground/40 border-t-accent-foreground" />
+          <span className="h-3 w-3 animate-spin rounded-full border border-background/40 border-t-background" />
         )}
         {sending ? "Sending…" : "Send message"}
       </button>
@@ -97,11 +97,11 @@ export function ContactForm() {
       {message && (
         <p
           role="status"
-          className={`text-sm ${
+          className={`text-xs font-bold ${
             status === "success"
-              ? "text-accent"
+              ? "text-green-600"
               : status === "error"
-                ? "text-red-500"
+                ? "text-red-600"
                 : "text-muted-foreground"
           }`}
         >
@@ -129,7 +129,7 @@ function Field({
     <div>
       <label
         htmlFor={name}
-        className="mb-1.5 block text-xs font-medium text-muted-foreground"
+        className="mb-1 block font-mono text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
       >
         {label}
       </label>
@@ -140,7 +140,7 @@ function Field({
         required
         placeholder={placeholder}
         autoComplete={autoComplete}
-        className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-ring"
+        className="w-full minimal-input py-2 text-sm text-foreground focus:border-accent"
       />
     </div>
   );

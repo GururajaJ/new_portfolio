@@ -1,5 +1,6 @@
 import { portfolio } from "@/config/portfolio";
 import { Reveal } from "./Reveal";
+import { Counter } from "./Counter";
 
 function initials(name: string) {
   return name
@@ -93,7 +94,7 @@ export function Hero() {
                 <div key={stat.label} className="text-center">
                   <dt className="sr-only">{stat.label}</dt>
                   <dd className="text-2xl font-bold text-gradient sm:text-3xl">
-                    {stat.value}
+                    <Counter value={stat.value} />
                   </dd>
                   <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
                     {stat.label}

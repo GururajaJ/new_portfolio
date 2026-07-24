@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useRef } from "react";
 import { portfolio, type Project } from "@/config/portfolio";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
@@ -17,14 +20,49 @@ export function Projects() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    // Find relative coordinates from -0.5 to 0.5
+    const mouseX = (e.clientX - rect.left) / width - 0.5;
+    const mouseY = (e.clientY - rect.top) / height - 0.5;
+
+    // Set rotation multipliers (e.g. max 10 degrees)
+    setRotateX(-mouseY * 10);
+    setRotateY(mouseX * 10);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
+    <article
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+        transition: "transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease",
+      }}
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm glow-card hover:border-accent/40 hover:shadow-lg hover:shadow-accent/15"
+    >
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-accent to-sky-400 transition-transform duration-300 group-hover:scale-x-100"
       />
       <div className="mb-2 flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold">{project.title}</h3>
+        <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">{project.title}</h3>
         {project.featured && (
           <span className="shrink-0 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
             Featured
