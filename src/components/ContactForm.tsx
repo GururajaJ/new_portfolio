@@ -16,12 +16,16 @@ export function ContactForm() {
     setStatus("sending");
     setMessage("");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/xgognlyp", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify(data),
       });
       const body = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
         error?: string;
       };
       if (!res.ok) {
