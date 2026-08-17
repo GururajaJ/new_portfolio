@@ -258,6 +258,43 @@ export function MinimalistLayout() {
                 </Reveal>
               ))}
             </ol>
+
+            {/* Certifications Subsection */}
+            {portfolio.certifications && portfolio.certifications.length > 0 && (
+              <div className="mt-16 pt-8 border-t border-foreground/10 space-y-4">
+                <h3 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest">
+                  Certifications
+                </h3>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {portfolio.certifications.map((cert, i) => (
+                    <Reveal key={cert} delay={i * 60} variant="fade-up">
+                      <li className="rounded border border-foreground/10 bg-muted/40 p-3 text-xs font-semibold text-foreground hover:border-foreground/30 transition-colors">
+                        {cert}
+                      </li>
+                    </Reveal>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Achievements Subsection */}
+            {portfolio.achievements && portfolio.achievements.length > 0 && (
+              <div className="mt-12 pt-8 border-t border-foreground/10 space-y-4">
+                <h3 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-widest">
+                  Key Achievements
+                </h3>
+                <ul className="space-y-3 list-disc pl-4 text-xs text-muted-foreground">
+                  {portfolio.achievements.map((ach, i) => (
+                    <Reveal key={ach} delay={i * 60} variant="fade-up">
+                      <li className="leading-relaxed font-medium text-foreground">
+                        {ach}
+                      </li>
+                    </Reveal>
+                  ))}
+                </ul>
+              </div>
+            )}
+
           </div>
         </div>
       </section>

@@ -52,15 +52,15 @@ export type Stat = {
 export const portfolio = {
   // --- Basic identity -------------------------------------------------------
   name: "Gururaja J",
-  role: "Full-Stack Java Developer",
+  role: "Software Engineer",
   /** Short tagline shown under your name in the hero. */
   tagline:
-    "I build scalable, well-crafted web applications with Java, Spring Boot, React.js, and PostgreSQL — from clean REST APIs to polished front ends.",
+    "I build scalable, well-crafted full-stack applications with Java, Spring Boot, React.js, and PostgreSQL — from clean REST APIs to microservices.",
   /** Longer intro used in the About section. */
   about:
-    "I'm a Full-Stack Java Developer and 2026 B.E. Computer Science graduate with hands-on experience building scalable web applications using Java, Spring Boot, React.js, and PostgreSQL. I enjoy designing RESTful APIs, implementing microservices architecture, and turning ideas into reliable products. With a strong foundation in OOP, Data Structures & Algorithms, and the SDLC — backed by 300+ problems solved on LeetCode — I'm seeking a Software Engineer role at a product-based company.",
+    "I'm a Software Engineer and B.E. Computer Science graduate (2022 – 2026) with hands-on experience building scalable full-stack applications using Java, Spring Boot, React.js, PostgreSQL, and Docker. I'm skilled in designing RESTful APIs, implementing microservices architectures, applying role-based access control (RBAC), and following clean code principles. With a strong foundation in OOP, Data Structures & Algorithms, and the SDLC — backed by 300+ problems solved on LeetCode — I'm seeking to contribute my technical expertise to a fast-paced engineering team.",
   location: "Coimbatore, Tamil Nadu, India",
-  phone: "+91 99761 85318",
+  phone: "+91 9976185318",
   /** Path (in /public) or URL to your resume. Leave "" to hide the button. */
   resumeUrl: "/Gururaja_J_Resume.pdf",
   /** Contact email. Used by the "Get in touch" button. */
@@ -70,7 +70,7 @@ export const portfolio = {
   stats: [
     { label: "LeetCode problems solved", value: "300+" },
     { label: "Full-stack projects", value: "3" },
-    { label: "CGPA", value: "7.89" },
+    { label: "CGPA", value: "8.07" },
   ] as Stat[],
 
   // --- Social / contact links ----------------------------------------------
@@ -84,7 +84,7 @@ export const portfolio = {
   skills: [
     {
       category: "Languages",
-      items: ["Java", "SQL", "C"],
+      items: ["Java", "SQL"],
     },
     {
       category: "Backend & Frameworks",
@@ -94,6 +94,7 @@ export const portfolio = {
         "Spring Data JPA",
         "RESTful APIs",
         "Microservices",
+        "Spring Security",
       ],
     },
     {
@@ -106,11 +107,26 @@ export const portfolio = {
     },
     {
       category: "Tools",
-      items: ["Git", "GitHub", "Postman"],
+      items: ["Docker", "Git", "GitHub", "GitLab", "CI/CD", "Maven", "Postman"],
     },
     {
       category: "Core Concepts",
-      items: ["OOP", "Data Structures & Algorithms", "SDLC"],
+      items: [
+        "Object-Oriented Programming",
+        "Data Structures & Algorithms",
+        "SDLC",
+        "Role-Based Access Control",
+      ],
+    },
+    {
+      category: "Soft Skills",
+      items: [
+        "Problem Solving",
+        "Continuous Learning",
+        "Adaptability",
+        "Team Collaboration",
+        "Communication",
+      ],
     },
   ] as SkillGroup[],
 
@@ -121,32 +137,26 @@ export const portfolio = {
       kind: "Self Project",
       period: "March 2025",
       description:
-        "Full-stack leave management system with a React.js front end and a Spring Boot (MVC) backend, letting students submit leave requests with real-time status tracking. Designed a relational PostgreSQL schema with full CRUD, plus role-based approval workflows so wardens and teachers can securely review, approve, or reject requests.",
+        "Built a full-stack leave management system where students submit leave requests and track approval status in real time through a React.js frontend backed by a Spring Boot MVC API. Designed a normalized PostgreSQL schema with full CRUD operations and role-based approval workflows for wardens and teachers, replacing a manual, paper-based approval process.",
       tags: ["Java", "Spring Boot", "React.js", "PostgreSQL", "REST API"],
       featured: true,
     },
     {
-      title: "Employee Status Management System",
+      title: "EmpFlow Hub — Employee Status Tracker",
       kind: "Self Project",
       period: "November 2024",
       description:
-        "Full-stack employee status tracking system using React.js (Vite) and Spring Boot, enabling employees to log and update daily work status through an intuitive interface. Built a centralized admin dashboard for real-time reporting and a normalized PostgreSQL schema for efficient, reliable CRUD.",
-      tags: ["Java", "Spring Boot", "React.js", "Vite", "PostgreSQL"],
+        "Built a full-stack employee status tracking system where employees log and update daily work status through a React.js (Vite) interface backed by a Spring Boot API. Built a centralized admin dashboard for real-time status reporting across employees, and containerized frontend/backend services with Docker for consistent local and deployment environments.",
+      tags: ["Java", "Spring Boot", "React.js (Vite)", "PostgreSQL", "Docker"],
+      featured: true,
     },
     {
-      title: "Complaint Register Website",
-      kind: "Team Project",
+      title: "Hospital Management System",
+      kind: "Self Project",
       period: "June 2025",
       description:
-        "Microservices-based complaint management platform in Java and Spring Boot with a React.js front end, enabling citizens to report and track civic issues end-to-end. Implemented RESTful APIs across the full complaint lifecycle with Role-Based Access Control, and optimized backend services and PostgreSQL queries for concurrent users.",
-      tags: [
-        "Java",
-        "Spring Boot",
-        "React.js",
-        "PostgreSQL",
-        "Microservices",
-        "REST API",
-      ],
+        "Built a hospital management system covering patient registration, doctor management, and appointment booking. Split the backend into separate Spring Boot microservices for patients, doctors, and appointments, each exposing its own REST APIs.",
+      tags: ["Java", "Spring Boot", "Microservices", "React.js", "PostgreSQL"],
       featured: true,
     },
   ] as Project[],
@@ -160,17 +170,17 @@ export const portfolio = {
       degree: "B.E., Computer Science and Engineering",
       institution: "Karpagam College of Engineering, Coimbatore (Anna University)",
       period: "2022 – 2026",
-      detail: "CGPA: 7.89",
+      detail: "CGPA: 8.07",
     },
     {
-      degree: "HSC — Higher Secondary (State Board)",
-      institution: "A.K.T Academic Matriculation Higher Secondary School",
+      degree: "HSC — A.K.T Academic Matriculation Higher Secondary School",
+      institution: "State Board",
       period: "2022",
       detail: "Percentage: 82%",
     },
     {
-      degree: "SSLC — Secondary (State Board)",
-      institution: "A.K.T Memorial High School",
+      degree: "SSLC — A.K.T Memorial High School",
+      institution: "State Board",
       period: "2020",
       detail: "Percentage: 75%",
     },
@@ -178,6 +188,7 @@ export const portfolio = {
 
   // --- Certifications -------------------------------------------------------
   certifications: [
+    "Java Full Stack Development — Wipro TalentNext Digital Skills Readiness Program (October 2025)",
     "React.js Certification — Coursera (October 2024)",
     "Master Spring Boot 3 & Spring Framework 6 with Java — Udemy (January 2025)",
     "Java Programming — NPTEL, Elite Medal (May 2024)",
